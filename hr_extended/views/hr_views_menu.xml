@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <menuitem
+                id="menu_view_hr_job"
+                action="hr.action_hr_job"
+                web_icon="hr_extended,static/src/img/job_search_icon.png"
+                sequence="100"/>
+
+    </data>
+</odoo>

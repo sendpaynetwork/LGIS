@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <menuitem name="Bank"
+          id="employee_bank_menu" action="base.action_res_bank_form"
+          web_icon="hr_extended,static/src/description/bank.png"
+          sequence="500"
+          groups="base.group_erp_manager"/>
+    </data>
+</odoo>
+

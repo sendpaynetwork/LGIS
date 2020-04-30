@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+       <record id="emp_pay_form_view" model="ir.ui.view">
+            <field name="name">Pay Point</field>
+            <field name="model">emp.pay</field>
+            <field name="arch" type="xml">
+                <form string="Pay Point Form">
+
+                    <sheet>
+                        <separator string="General" colspan="2"/>
+
+                            <group colspan="4" col="4">
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                    <field name="mda"/>
+                            </group>
+
+                    </sheet>
+                </form>
+            </field>
+
+
+        </record>
+
+        <record id="emp_pay_form_tree_view" model="ir.ui.view">
+            <field name="name">pay.point.form.tree</field>
+            <field name="model">emp.pay</field>
+            <field name="arch" type="xml">
+                <tree string="Pay Point Information">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="mda"/>
+                </tree>
+            </field>
+
+
+        </record>
+
+        <record model="ir.actions.act_window" id="emp_pay_list_action">
+            <field name="name">Pay Point Config</field>
+            <field name="res_model">emp.pay</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Pay Point" id="menu_emp_pay" icon="fa-user"  web_icon="emp_pay,static/src/img/icon.png" action="emp_pay_list_action"/>
+
+    </data>
+</odoo>

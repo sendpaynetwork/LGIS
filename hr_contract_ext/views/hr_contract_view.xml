@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Contracts Button on Employee Form -->
+
+        <record id="hr_contract_ext_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.view.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <!--<field name="name" position="after">
+                    <div class="oe_title">
+                       <label for="employee_number" class="oe_edit_only"/>
+                       <h1>
+                           <field name="employee_number" placeholder="Employee Number"/>
+                       </h1>
+                   </div>
+               </field>-->
+                <xpath expr="//field[@name='employee_id']" position="before">
+                    <field name="employee_number"/>
+                </xpath>
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="employee_union"/>
+                    <field name="grade_step" required="0"/>
+                    <field name="staff_class"/>
+                </xpath>
+                <!--<xpath expr="//field[@name='wage']" position="after">
+                    <field name="grade_step" required="0"/>
+                    <field name="staff_class"/>
+                </xpath>-->
+                <!--<xpath expr="//field[@name='wage']" position="after">
+
+                        <field name="grade_step" required="0"/>
+                    </xpath>-->
+                <xpath expr="//page['Work Permit']" position="after">
+                    <page string="Allowance and Deductions">
+                        <group>
+                            <group string="Allowance and Deduction Information" col="4" colspan="4" text-align="center">
+                                <field name="tsa_rate" class="oe_inline"/>
+
+                                <field name="tax" class="oe_inline"/>
+                                <field name="tsa" class="oe_inline"/>
+                                <field name="ltg" class="oe_inline"/>
+                                <field name="welfare" class="oe_inline"/>
+
+                                <field name="cooperative" class="oe_inline"/>
+                                <field name="ctss" class="oe_inline"/>
+                                <field name="edpa" class="oe_inline"/>
+                                <field name="salary_advance" class="oe_inline"/>
+                                <!--<field name="union_rate" class="oe_inline" string="Union Rate%"/>-->
+                                <field name="union_rate" class="oe_inline" string="Union Rate"/>
+                                <field name="surcharge" class="oe_inline"/>
+                                <field name="union_due" class="oe_inline"/>
+                                <field name="nlc_rate" class="oe_inline" string="NLC Rate"/>
+                                <field name="nlc_due" class="oe_inline"/>
+                                <field name="teacher_due" class="oe_inline"/>
+                                <field name="teacher_rate" class="oe_inline" string="Teacher Due Rate"
+                                       groups="base.group_system"/>
+                                <field name="loan" class="oe_inline"/>
+                                <field name="pension_deduction" class="oe_inline"/>
+                                <field name="meal" class="oe_inline"/>
+                                <field name="domestic" class="oe_inline"/>
+                                <field name="entertainment" class="oe_inline"/>
+                                <field name="arrears" class="oe_inline"/>
+                                <field name="arrears_note" class="oe_inline"/>
+                                <field name="learning" class="oe_inline"/>
+                                <field name="exams" class="oe_inline"/>
+                                <field name="secretariat" class="oe_inline"/>
+                                <field name="special_edu" class="oe_inline"/>
+                                <field name="weigh" class="oe_inline"/>
+                                <field name="special_allowance" class="oe_inline"/>
+                                <field name="overpay" class="oe_inline"/>
+                                <field name="overpay_note" class="oe_inline"/>
+                                <field name="transport"/>
+                                <field name="nhs"/>
+                                <field name="call_duty" class="oe_inline"/>
+                                <field name="posting" class="oe_inline"/>
+                                <field name="hazard" class="oe_inline"/>
+                                <field name="non_clinical" class="oe_inline"/>
+                                <field name="shift_duty" class="oe_inline"/>
+                                <field name="specialist" class="oe_inline"/>
+                                <field name="magistrate" class="oe_inline"/>
+                                <field name="robbing" class="oe_inline"/>
+                                <field name="thrift" class="oe_inline"/>
+                                <!--<field name="staff_pay_date" invisible="1"/>-->
+                                <field name="ltg_date" invisible="0" groups="base.group_system"/>
+                                <field name="ltg_month" invisible="0" groups="base.group_system"/>
+                                <field name="ltg_year" invisible="0" groups="base.group_system"/>
+                                <field name="arrears_date" invisible="0" groups="base.group_system"/>
+                                <field name="arrears_month" invisible="0" groups="base.group_system"/>
+                                <field name="arrears_year" invisible="0" groups="base.group_system"/>
+                                <field name="teacher_due_date" invisible="0" groups="base.group_system"/>
+                                <field name="teacher_due_month" invisible="0" groups="base.group_system"/>
+                                <field name="teacher_due_year" invisible="0" groups="base.group_system"/>
+                                <field name="on_projection" groups="base.group_system"/>
+                                <field name="retire_date_by_proj" groups="base.group_system"/>
+                                <!--<field name="staff_ltg_date" invisible="1"/>-->
+                                <field name="grade" invisible="1"/>
+                                <field name="step" invisible="1"/>
+                                <field name="interdiction" invisible="0"/>
+                                <field name="actual_month" invisible="1"/>
+                                <field name="pay_month" invisible="1"/>
+                                <field name="contract_pay" invisible="1"/>
+                                <field name="proj_month" invisible="1"/>
+                                <field name="month_days" invisible="1"/>
+
+                            </group>
+
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_hr_contract_view_extension_tree" model="ir.ui.view">
+            <field name="name">hr.contract.view.tree</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="before">
+                    <field name="employee_number"/>
+                </field>
+
+            </field>
+        </record>
+
+
+        <record id="hr_contract_view_extension_search" model="ir.ui.view">
+            <field name="name">hr.contract.view.search</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+            <field name="arch" type="xml">
+                <search string="Search Contract">
+                    <field name="employee_number" string="Employee Number"/>
+
+                </search>
+            </field>
+        </record>
+
+        <menuitem name="Contracts"
+                  id="hr_contract.hr_menu_contract"
+                  action="hr_contract.action_hr_contract"
+                  groups="base.group_system,hr.group_hr_manager"
+                  icon="fa-user"
+                  web_icon="hr_contract_ext,static/img/contract.png"
+                  sequence="75"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="0">
+        <record id="hr_employee_progress_view" model="ir.ui.view">
+            <field name="name">Employee Information Progress</field>
+            <field name="model">hr.employee.progress</field>
+            <field name="arch" type="xml">
+                <!--<data>-->
+                <form string="Employee Form" create="false" edit="false">
+
+                    <sheet>
+                        <separator string="General" colspan="2"/>
+                        <group colspan="4" col="4">
+                            <field name="employee_id"/>
+                            <field name="employee_number"/>
+                            <field name="name"/>
+                            <field name="grade"/>
+                            <field name="step"/>
+                            <field name="salary"/>
+                            <field name="old_salary"/>
+                            <field name="old_salary_structure" invisible="0"/>
+                            <field name="new_salary_structure" invisible="0"/>
+                            <field name="old_step" invisible="0"/>
+                            <field name="old_grade" invisible="0"/>
+                            <field name="old_grade_value" invisible="0"/>
+                            <field name="grade_value" invisible="0"/>
+                            <field name="date_modified" invisible="0"/>
+                            <field name="modified_by" invisible="0"/>
+                            <field name="salary_structure" invisible="1"/>
+                        </group>
+
+
+                    </sheet>
+                </form>
+                <!--</data>-->
+            </field>
+
+
+        </record>
+
+        <record id="hr_employee_progress_tree_view" model="ir.ui.view">
+            <field name="name">Employee Information Update</field>
+            <field name="model">hr.employee.progress</field>
+            <field name="arch" type="xml">
+                <!--<data>-->
+                <tree string="Employee Form" create="false">
+                    <field name="employee_id"/>
+                    <field name="employee_number"/>
+                    <field name="name"/>
+                    <field name="grade"/>
+                    <field name="step"/>
+                    <field name="salary"/>
+                    <field name="old_salary_structure" invisible="0"/>
+                    <field name="new_salary_structure" invisible="0"/>
+                    <field name="old_step" invisible="0"/>
+                    <field name="old_grade" invisible="0"/>
+                    <field name="old_grade_value" invisible="0"/>
+                    <field name="grade_value" invisible="0"/>
+                    <field name="date_modified" invisible="0"/>
+                    <field name="modified_by" invisible="0"/>
+                    <field name="salary_structure" invisible="1"/>
+                </tree>
+            </field>
+
+
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_employee_progress_list_action">
+            <field name="name">Employee Update</field>
+            <field name="res_model">hr.employee.progress</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Employee Progress Update" id="menu_hr_employee_progress" icon="fa-user"
+                  web_icon="employee_progress,static/src/img/employee_progress.png"
+                  action="hr_employee_progress_list_action"/>
+
+    </data>
+</odoo>
+
+

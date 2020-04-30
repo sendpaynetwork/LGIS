@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+access_grat_pen_hr,gratuity.pension,model_gratuity_pension,base.group_erp_manager,1,1,1,1
+access_grat_pen_hr_man,gratuity.pension,model_gratuity_pension,hr.group_hr_manager,1,1,1,1
+access_grat_pen_hr_user,gratuity.pension,model_gratuity_pension,hr.group_hr_user,1,1,1,1

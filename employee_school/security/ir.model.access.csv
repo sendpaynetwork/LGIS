@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_school_erp,hr.employee.sch,model_hr_employee_sch,base.group_erp_manager,1,1,1,1
+access_hr_employee_school_hr_manager,hr.employee.sch,model_hr_employee_sch,hr.group_hr_manager,1,1,1,1
+access_hr_employee_school_hr_user,hr.employee.sch,model_hr_employee_sch,hr.group_hr_user,1,1,1,1
+access_hr_employee_hr,hr.employee.sch,model_hr_employee_sch,base.group_user,1,1,1,1

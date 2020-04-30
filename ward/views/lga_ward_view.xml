@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="lga_ward_form_view" model="ir.ui.view">
+            <field name="name">lga.ward.form</field>
+            <field name="model">lga.ward</field>
+            <field name="arch" type="xml">
+                <form string="School Local Govt Form">
+                    <sheet>
+                    <separator string="LGA Ward Configuration"/>
+                        <group col="4" colspan="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="lga_id" options='{"no_open": True}'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+
+        </record>
+
+        <record id="lga_ward_form_tree_view" model="ir.ui.view">
+            <field name="name">lga.ward.form.tree</field>
+            <field name="model">lga.ward</field>
+            <field name="arch" type="xml">
+                <tree string="LGA Ward Information">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="lga_id" options='{"no_open": True}'/>
+                </tree>
+            </field>
+            
+        </record>
+
+       <!-- <record model="ir.actions.act_window" id="org_segment_list_action">
+            <field name="name">Budget Organisation</field>
+            <field name="res_model">org.org</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>-->
+        
+
+         <record id="action_lga_ward" model="ir.actions.act_window">
+            <field name="name">LGA Ward</field>
+            <field name="res_model">lga.ward</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="view_mode">kanban,tree,form</field>-->
+            <field name="context">{'search_default_app':1}</field>
+            <field name="help" type="html">
+              <p><b>No record found!</b></p>
+              <p>You should try others search criteria or create School Facility</p>
+            </field>
+        </record>
+        
+         <!--<menuitem name="Local Govt" parent="school.menu_configuration"
+                  id="menu_lga_ward" sequence="50" action="action_lga_ward"/>-->
+
+        <menuitem name="Ward"
+          id="menu_lga_ward"
+          icon="fa-cog"
+          web_icon="ward,static/src/img/icon.png"
+          sequence="7" action="action_lga_ward"
+          groups="base.group_system,base.group_erp_manager"/>
+
+    </data>
+</odoo>

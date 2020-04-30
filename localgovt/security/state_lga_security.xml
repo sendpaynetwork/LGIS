@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Record Rule for News Update for student and Teacher -->
+         <record id="school_country_rule" model="ir.rule">
+            <field name="name">School Country Rule</field>
+            <field name="model_id" ref="base.model_res_country_state"/>
+            <field eval="True" name="global"/>
+            <field name="domain">[('code','=','NG')]</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+access_emp_union,access_emp_union,model_emp_union,hr.group_hr_manager,1,1,1,1

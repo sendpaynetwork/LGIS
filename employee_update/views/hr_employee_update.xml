@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="0">
+        <record id="hr_employee_update_view" model="ir.ui.view">
+            <field name="name">Employee Information Update</field>
+            <field name="model">hr.employee.update</field>
+            <field name="arch" type="xml">
+                <!--<data>-->
+                <form string="Employee Form"  edit="false">
+
+                    <sheet>
+                        <separator string="General" colspan="2"/>
+                        <group colspan="4" col="4">
+                           <!-- <field name="contract_count" string="Contracts"/>-->
+                            <field name="employee_id"/>
+                            <field name="employee_number"/>
+                            <field name="name"/>
+                            <field name="contract_id"/>
+                            <field name="salary_structure"/>
+                            <field name="grade_level"/>
+                            <field name="grade"/>
+                            <field name="step"/>
+                            <field name="salary"/>
+                            <field name="old_salary_structure" invisible="0"/>
+                            <field name="new_salary_structure" invisible="0"/>
+                            <field name="salary_structure_id" invisible="1"/>
+                            <field name="old_salary" invisible="1"/>
+                            <field name="old_step" invisible="1"/>
+                            <field name="old_grade" invisible="1"/>
+                            <field name="old_grade_value" invisible="1"/>
+                            <field name="grade_value" invisible="1"/>
+                            <field name="date_modified" invisible="1"/>
+                            <field name="modified_by" invisible="1"/>
+                            <field name="modified_by_name" invisible="1"/>
+                        </group>
+
+
+                    </sheet>
+                </form>
+                <!--</data>-->
+            </field>
+
+
+        </record>
+
+        <record id="hr_employee_update_tree_view" model="ir.ui.view">
+            <field name="name">Employee Information Update</field>
+            <field name="model">hr.employee.update</field>
+            <field name="arch" type="xml">
+                <!--<data>-->
+                <tree string="Employee Form">
+                    <field name="employee_number"/>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="grade_level"/>
+                    <field name="grade"/>
+                    <field name="step"/>
+                    <field name="modified_by"/>
+                    <field name="date_modified"/>
+                </tree>
+            </field>
+
+
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_employee_update_list_action">
+            <field name="name">Employee Update</field>
+            <field name="res_model">hr.employee.update</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Employee Update" id="menu_hr_employee_update" icon="fa-user"
+                  web_icon="employee_update,static/src/img/employee_update.png"
+                  action="hr_employee_update_list_action"/>
+
+    </data>
+</odoo>
+
+

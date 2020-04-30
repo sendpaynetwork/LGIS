@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lga_erp_admin,lga.ward,model_lga_ward,base.group_erp_manager,1,1,1,1
+access_lga_system_admin,lga.ward,model_lga_ward,base.group_system,1,1,1,1
+access_lga_hr_admin,lga.ward,model_lga_ward,hr.group_hr_manager,1,1,1,1
+

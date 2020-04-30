@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<!--<template id="report_employee1">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'hr.report_employee_document1')"/>
+        </t>
+    </t>
+</template>-->
+<template id="report_employee1">
+    <t t-call="report.html_container">
+    <t t-call="report.external_layout">
+         <!-- <t t-foreach="docs" t-as="emp">
+            <t>-->
+            <div class="page">
+                 <t t-foreach="docs" t-as="emp">
+            <t>
+                <div class="oe_structure"/>
+                <div class="row">
+                    <table class="table table-condensed">
+                         <tr>
+                            <td style="width:152px">
+                                <img t-att-src="'data:image/jpg;base64,%s' % emp.image_medium" style="max-height:180px;max-width:150px;align:left"/>
+                            </td>
+                            <td>
+                                <h2 style="margin-top:0px">
+                                    <span t-field="emp.name"/>
+                                </h2>
+                                <h3>
+                                    <span t-field="emp.code"/>
+                                </h3>
+                                <h4>
+                                    <span t-field="emp.work_email"/>
+                                </h4>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-condensed">
+                        <tr style="font-size:24px">
+                            <th class="text-center"><strong>Citizenship And OtherInfo</strong></th>
+                            <th class="text-center"><strong>Birth</strong></th>
+                        </tr>
+                        <tr style="font-size:18px">
+                            <td style="width:50%">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span style="margin-left:50px">Nationality:</span>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.country_id"/><br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="margin-left:50px">State:</span>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.state_of_origin"/><br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="margin-left:50px">Local GOVT:</span>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.lga_id"/><br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span style="margin-left:50px">Date Of Birth:</span>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.date_of_birth"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="margin-left:50px">Plac of Birth:</span>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.place_of_birth"/><br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-condensed">
+                        <tr style="font-size:24px">
+                            <th class="text-center"><strong>Contect Info</strong></th>
+                            <th class="text-center"><strong>Status</strong></th>
+                        </tr>
+                        <tr style="font-size:18px">
+                            <td style="width:50%">
+                                <table>
+                                    <tr>
+                                        <td style="width:210px">
+                                           <span style="margin-left:50px">Working Address:</span><br/>
+
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.address_home"/><br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:210px">
+                                           <span style="margin-left:50px">Contect No(M):</span><br/>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.mobile_phone"/><br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span style="margin-left:50px">Gender:</span><br/>
+
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.gender"/>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="margin-left:50px">Marital Status:</span>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.marital_status"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                     <table class="table table-condensed">
+                        <tr style="font-size:24px">
+                            <th class="text-center"><strong>Department Info</strong></th>
+                            <th class="text-center"><strong>Position</strong></th>
+                        </tr>
+                        <tr style="font-size:18px">
+                            <td style="width:50%">
+                                <table>
+                                    <tr>
+                                        <td style="width:210px">
+                                           <span style="margin-left:50px">Department Name:</span><br/>
+
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.department_id"/><br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:210px">
+                                           <span style="margin-left:50px">Catagory:</span><br/>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.staff_class"/><br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table>
+                                    <tr>
+                                        <td>
+                                           <span style="margin-left:50px">Join Date:</span><br/>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.date_of_employment"/><br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                           <span style="margin-left:50px">Is Manager:</span><br/>
+                                        </td>
+                                        <td style="width:25px">
+
+                                        </td>
+                                        <td>
+                                            <span t-field="emp.coach_id"/><br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </t>
+                </t>
+            </div>
+
+                </t>
+        </t>
+      <!--  </t>
+    </t>-->
+</template>
+</data>
+</openerp>

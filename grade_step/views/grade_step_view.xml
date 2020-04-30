@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_grade_step_tree" model="ir.ui.view">
+            <field name="name">grade.step.tree</field>
+            <field name="model">grade.step</field>
+            <field name="arch" type="xml">
+
+                <tree string="STAFF GRADE LEVEL AND STEP">
+                    <field name="name"/>
+                    <field name="grade"/>
+                    <field name="step"/>
+                    <field name="salary"/>
+                    <field name="salary_structure"/>
+                    <field name="meal"/>
+                    <field name="entertainment"/>
+                    <field name="domestic"/>
+                    <field name="call_duty"/>
+                    <field name="posting"/>
+                    <field name="hazard"/>
+                    <field name="non_clinical"/>
+                    <field name="shift_duty"/>
+                    <field name="specialist"/>
+                    <field name="magistrate"/>
+                    <field name="robbing"/>
+                    <field name="rent_pol"/>
+                    <field name="utility_pol"/>
+                    <field name="domestic_pol"/>
+                    <field name="entertainment_pol"/>
+                    <field name="constituency"/>
+                    <field name="pers_assist"/>
+                    <field name="transport"/>
+                    <field name="newspaper"/>
+                    <field name="recess"/>
+
+                </tree>
+
+            </field>
+
+        </record>
+
+        <record id="view_grade_step_form" model="ir.ui.view">
+            <field name="name">grade.step.form</field>
+            <field name="model">grade.step</field>
+            <field name="arch" type="xml">
+                <form string="STAFF GRADE LEVEL AND STEP" version="7.0">
+                    <sheet>
+                        <separator string="SGL AND STEP SETUP"/>
+                        <group col="4" colspan="4">
+
+                            <field name="grade"/>
+                            <field name="step"/>
+                            <field name="salary" options='{"no_open": True}'/>
+                            <field name="salary_structure" options='{"no_open": True}'/>
+                            <field name="name"/>
+                            <field name="meal"/>
+                            <field name="entertainment"/>
+                            <field name="domestic"/>
+                            <field name="call_duty"/>
+                            <field name="posting"/>
+                            <field name="hazard"/>
+                            <field name="non_clinical"/>
+                            <field name="specialist"/>
+                            <field name="magistrate"/>
+                            <field name="robbing"/>
+                            <field name="rent_pol"/>
+                            <field name="utility_pol"/>
+                            <field name="domestic_pol"/>
+                            <field name="entertainment_pol"/>
+                            <field name="constituency"/>
+                            <field name="pers_assist"/>
+                            <field name="transport"/>
+                            <field name="newspaper"/>
+                            <field name="recess"/>
+                        </group>
+                        <!--<footer> <button name="write" type="object" string="Save"/> or <button name="cancel" string="Cancel" special="cancel" class="oe_link"/> </footer>-->
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_grade_step" model="ir.actions.act_window">
+            <field name="name">SGL/STEP</field>
+            <field name="res_model">grade.step</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_grade_step_tree"/>
+
+        </record>
+
+        <menuitem name="Grade Level"
+                  id="sgl_menu_admin"
+                  icon="fa-cog"
+                  web_icon="grade_step,static/src/img/step.png"
+                  sequence="7" action="action_grade_step"
+                  groups="base.group_system,hr.group_hr_manager,base.group_erp_manager"/>
+    </data>
+</odoo>

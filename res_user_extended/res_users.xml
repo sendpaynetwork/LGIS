@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_users_view_bank_form_profile" model="ir.ui.view">
+            <field name="name">res.users.bank.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="res_users_view_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <field name="employee_bank_account_id" position="replace"/>
+            </field>
+        </record>
+
+    </data>
+</odoo>

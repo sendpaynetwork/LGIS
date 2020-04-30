@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="mda_form_view" model="ir.ui.view">
+            <field name="name">mda.form</field>
+            <field name="model">edsg.mda</field>
+            <field name="arch" type="xml">
+                <form string="MDA Form">
+
+                    <sheet>
+                        <separator string="General" colspan="2"/>
+                        <!--<div class="oe_title">-->
+                            <group colspan="4" col="4">
+                                <!--<label for="name" class="oe_edit_only" string="MDA Name"/>
+                                <h1>-->
+                                    <field name="name"/>
+                                <!--</h1>
+
+                                <label for="code" class="oe_edit_only" string="MDA Code"/>
+                                <h1>-->
+                                    <field name="code"/>
+                                    <field name="lga_id"/>
+                               <!-- </h1>-->
+                            </group>
+                       <!-- </div>-->
+
+                    </sheet>
+                </form>
+            </field>
+
+
+        </record>
+
+        <record id="mda_form_tree_view" model="ir.ui.view">
+            <field name="name">mda.form.tree</field>
+            <field name="model">edsg.mda</field>
+            <field name="arch" type="xml">
+                <tree string="MDA Information">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="lga_id"/>
+                </tree>
+            </field>
+
+
+        </record>
+
+        <record model="ir.actions.act_window" id="mda_list_action">
+            <field name="name">MDA Config</field>
+            <field name="res_model">edsg.mda</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+       <!-- <record model="ir.actions.act_window" id="sys_list_action">
+            <field name="name">SYS Config</field>
+            <field name="res_model">edsg.sys</field>
+            <field name="view_type">form</field>
+            &lt;!&ndash;<field name="view_mode">tree,form</field>&ndash;&gt;
+        </record>-->
+
+        <!-- <record id="sys_list_action" model="ir.actions.act_window">
+            <field name="name">Sys Config</field>
+            <field name="res_model">edsg.sys</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            &lt;!&ndash;<field name="view_mode">kanban,tree,form</field>&ndash;&gt;
+            <field name="context">{'search_default_app':1}</field>
+            <field name="help" type="html">
+              <p><b>No module found!</b></p>
+              <p>You should try others search criteria.</p>
+            </field>
+        </record>-->
+
+         <record id="mda_list_action" model="ir.actions.act_window">
+            <field name="name">MDA Config</field>
+            <field name="res_model">edsg.mda</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="view_mode">kanban,tree,form</field>-->
+            <field name="context">{'search_default_app':1}</field>
+            <field name="help" type="html">
+              <p><b>No record found!</b></p>
+              <p>You should try others search criteria or create MDA</p>
+            </field>
+        </record>
+        <menuitem id="mda_session_menu" name="MDA"  action="mda_list_action" web_icon="mda,static/src/img/govt.png" groups="base.group_system,base.group_erp_manager"/>
+
+    </data>
+</odoo>

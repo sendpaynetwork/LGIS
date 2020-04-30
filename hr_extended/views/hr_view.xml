@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="view_employee_form_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <!--<xpath expr="//div[@class='oe_title']" position="before">
+                    <group colspan="4" col="4">
+
+                        <field name="employee_number" string="Employee Number"/>
+                        <field name="first_name"/>
+                        <field name="middle_name"/>
+                        <field name="last_name"/>
+
+                    </group>
+                </xpath>
+                <field name="name" position="replace">
+                    <field name="name" placeholder="Employee Name" required="True"/>
+                </field>
+
+                <field name="category_ids" position="replace">
+                    <field name="category_ids" widget="many2many_tags"
+                           options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Tags"
+                           groups="hr.group_hr_manager"/>
+                </field>-->
+                <xpath expr="//div[@class='oe_title']" position="inside">
+                    <group>
+
+                        <field name="employee_number" string="Employee Number"/>
+                        <field name="first_name"/>
+                        <field name="middle_name"/>
+                        <field name="last_name"/>
+                        <field name="home_address"/>
+                    </group>
+                </xpath>
+                <field name="bank_account_id" position="replace">
+                    <field name="bank_account_id"/>
+                </field>
+                <field name="bank_account_id" position="after">
+                    <field name="bank_account_number"/>
+                    <field name="sort_code"/>
+                </field>
+                <field name="work_location" position="after">
+                    <field name="person_type_name"/>
+                    <field name="person_type_id"/>
+                </field>
+                <field name="country_id" position="after">
+                    <field name="state_of_origin" required="1"/>
+                    <field name="lga_id" required="1"/>
+                </field>
+                <xpath expr="//group[@name='managers']" position="before">
+                    <group name="appointment" string="Appointment">
+                        <field name="work_id" required="1"/>
+                        <field name="office_address" required="1"/>
+                        <field name="date_of_employment"/>
+                    </group>
+
+                </xpath>
+                <xpath expr="//page[@name='personal_information']" position="after">
+                    <page name="account_information" string="Account Information" groups="hr.group_hr_user">
+                        <group>
+                            <group string="Other Information">
+                                <field name="salary_structure"/>
+                                <field name="gl"/>
+                                <field name="grade"/>
+                                <field name="step"/>
+                                <field name="pay_value"/>
+                                <field name="grade_value" invisible="1"/>
+                            </group>
+                            <group string="Admin Head Information">
+                                <field name="pay_point"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='hr_settings']" position="inside">
+                    <group string="Other Settings" col="4">
+                        <field name="pension_status" invisible="1"/>
+                        <field name="pension_moved" invisible="1"/>
+                        <field name="employment_status" attrs="{'readonly':[('pension_moved','!=',0)]}"/>
+                        <field name="employee_action_reason"/>
+                        <field name="termination_date" attrs="{'invisible':[('employment_status','!=','Terminate')]}"/>
+                        <field name="on_payroll_emp"
+                               groups="base.group_system,base.group_erp_payroll,base.group_erp_hr,base.group_erp_manager"/>
+                        <field name="on_projection"
+                               groups="base.group_system,base.group_erp_payroll,base.group_erp_hr,base.group_erp_manager"/>
+                        <field name="retire_date_by_proj" attrs="{'invisible':[('on_projection','=', False)]}"/>
+                        <field name="proj_month" groups="base.group_system"/>
+                        <field name="month_days" groups="base.group_system"/>
+                        <field name="to_retire"
+                               groups="base.group_system,base.group_erp_payroll,base.group_erp_hr,base.group_erp_manager,base.group_hr_manager"/>
+                        <field name="interdiction"
+                               groups="base.group_system,base.group_erp_payroll,base.group_erp_hr,base.group_erp_manager"/>
+                        <field name="actual_month" invisible="1"/>
+                        <field name="pay_month"
+                               groups="base.group_system,base.group_erp_payroll,base.group_erp_hr,base.group_erp_manager"
+                               attrs="{'readonly':[('interdiction','!=',2)]}"/>
+                        <field name="from_biometric" groups="base.group_system"/>
+                        <field name="date_imported" groups="base.group_system"/>
+                        <field name="incremental_month"/>
+                        <field name="incremental_year" invisible="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

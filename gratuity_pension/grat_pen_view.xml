@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_gratuity_pension_tree" model="ir.ui.view">
+            <field name="name">gratuity.pension</field>
+            <field name="model">gratuity.pension</field>
+            <field name="arch" type="xml">
+
+                <tree string="GRATUITY AND PENSION">
+
+                    <field name="year_of_service"/>
+                    <field name="gratuity"/>
+                    <field name="pension"/>
+
+                </tree>
+
+            </field>
+
+        </record>
+
+        <record id="view_gratuity_pension_form" model="ir.ui.view">
+            <field name="name">gratuity.pension.form</field>
+            <field name="model">gratuity.pension</field>
+            <field name="arch" type="xml">
+                <form string="GRATUITY AND PENSION" version="7.0">
+                    <sheet>
+                        <separator string="GRATUITY AND PENSION"/>
+                        <group col="4" colspan="4">
+
+                        <field name="year_of_service"/>
+                        <field name="gratuity"/>
+                        <field name="pension"/>
+
+                        </group>
+                        <!--<footer> <button name="write" type="object" string="Save"/> or <button name="cancel" string="Cancel" special="cancel" class="oe_link"/> </footer>-->
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_gratuity_pension" model="ir.actions.act_window">
+            <field name="name">GRATUITY PENSION</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gratuity.pension</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_gratuity_pension_tree"/>
+
+        </record>
+
+        <!-- <record id="hr_employee_contract_view" model="ir.ui.view">
+            <field name="name">Employee Contract</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                     <xpath expr="//field[@name='wage']" position="after">
+
+                    <field name="grade_step" required="0"/>
+                     </xpath>
+                </data>
+            </field>
+         </record>-->
+
+  <!--<menuitem name='SGL/STEP' id='grade_step_menu' parent='localgovt.lga_set_menu' sequence='2' action="action_grade_step" />-->
+       <!--<menuitem name='SGL/STEP' id='grade_step_m' parent='localgovt.lga_set_menu' sequence='2' action="action_grade_step" groups="base.group_erp_subeb"/>
+-->
+
+        <menuitem name="Gratuity/Pension"
+          id="grat_pen_menu_admin"
+          icon="fa-cog"
+          web_icon="gratuity_pension,static/src/img/icon.png"
+          sequence="7" action="action_gratuity_pension"
+          groups="base.group_system,hr.group_hr_manager,base.group_erp_manager"/>
+    </data>
+</odoo>

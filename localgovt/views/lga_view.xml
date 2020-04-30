@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_state_lga_tree" model="ir.ui.view">
+            <field name="name">state.lga.tree</field>
+            <field name="model">state.lga</field>
+            <field name="arch" type="xml">
+
+                <tree string="LocalGovt">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state_id"/>
+                    <field name="district_id"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+        <record id="view_state_lga_form" model="ir.ui.view">
+            <field name="name">state.lga.form</field>
+            <field name="model">state.lga</field>
+            <field name="arch" type="xml">
+                <form string="Local Govt">
+                    <sheet>
+                        <separator string="Local Govt Configuration"/>
+                        <group col="4" colspan="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="state_id" options='{"no_open": True}'/>
+                            <field name="district_id" options='{"no_open": True}'/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_student_users_form_inherit" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <data>
+
+                    <xpath expr="//page['Preferences']" position="before">
+                        <page string="LGA Configuration">
+                            <group>
+                                    <group string="LGA/District Configuration">
+                                        <field name="district_id" nolabel="0"/>
+                                        <field name="lga_id" nolabel="0"/>
+                                    </group>
+                            </group>
+                        </page>
+                    </xpath>
+               </data>
+            </field>
+        </record>
+
+        <!--<record id="action_state_lga" model="ir.actions.act_window">
+            <field name="name">States LGA</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">state.lga</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_state_lga_tree"/>
+            <field name="context">{'search_default_app':1}</field>
+            <field name="help" type="html">
+              <p><b>No record found!</b></p>
+              <p>You should try others search criteria or create LGA</p>
+            </field>
+
+        </record>-->
+
+         <record id="action_state_lga" model="ir.actions.act_window">
+            <field name="name">States LGA</field>
+            <field name="res_model">state.lga</field>
+            <field name="view_mode">tree,form</field>
+             <!--<field name="domain">[('code','=','NG')]</field>-->
+            <!--<field name="view_mode">kanban,tree,form</field>-->
+            <field name="context">{'search_default_app':1}</field>
+            <field name="help" type="html">
+              <p><b>No record found!</b></p>
+              <p>You should try others search criteria or create LGA</p>
+            </field>
+        </record>
+
+
+        <record id="base.action_country_state" model="ir.actions.act_window">
+            <field name="name">Fed. States</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.country.state</field>
+            <field name="domain">[('country_id','=',163)]</field>
+            <field name="view_id" ref="base.view_country_state_tree"/>
+            <field name="help">If you are working on the American market, you can manage the different federal states you are working on from here. Each state is attached to one country.</field>
+        </record>
+
+
+        <menuitem id="lga_session_menu" name="LGA"  action="action_state_lga" web_icon="localgovt,static/src/img/icon.png"  groups="base.group_system,base.group_erp_manager"/>
+
+
+<!--
+        <menuitem name="States/LGA" id="lga_menu_admin" web_icon="localgovt,static/src/img/icon-office.png"  action="action_state_lga"
+          groups="base.group_system,base.group_erp_manager"/>-->
+
+         <menuitem action="action_state_lga" id="state_lga_menu" parent="lga_session_menu" sequence="1" name="Local Govt"/>
+        <menuitem action="base.action_country_state" id="lga_menu_country_state_partner" parent="lga_session_menu" sequence="2" name="States"/>
+
+
+    </data>
+</odoo>
