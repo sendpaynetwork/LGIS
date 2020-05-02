@@ -1,0 +1,4 @@
+[submodule "sendpaynetwork/LGIS"]
+	path = sendpaynetwork/LGIS
+	url = git@github.com:sendpaynetwork/LGIS.git
+	branch = master
