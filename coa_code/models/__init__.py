@@ -1,7 +1,7 @@
-import admin_code
-import eco_code
-import fun_code
-import fund_code
-import geo_code
-import prog_code
-import account
+from . import admin_code
+from . import eco_code
+from . import fun_code
+from . import fund_code
+from . import geo_code
+from . import prog_code
+from . import account

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
-
-
-        <!-- Accounts -->
 
         <record id="view_account_form_ext" model="ir.ui.view">
             <field name="name">account.account.form</field>
@@ -13,12 +10,6 @@
                 <data>
 
                     <field name="name" position="before">
-                        <!--<field name="name"/>
-                        <field name="code" placeholder="code"/>-->
-                        <!--<group>
-                            <field name="code_description" />
-                        </group>-->
-
                         <field name="admin"/>
                         <field name="economic"/>
                         <field name="functional"/>
@@ -33,49 +24,5 @@
             </field>
         </record>
 
-
-
-        <!--<record id="crossovered_budget_lines_view_form_ext" model="ir.ui.view">-->
-            <!--<field name="name">crossovered.budget.lines.view.form</field>-->
-            <!--<field name="model">crossovered.budget</field>-->
-            <!--<field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>-->
-            <!--<field name="arch" type="xml">-->
-                <!--<data>-->
-
-                    <!--<field name="general_budget_id" position="before">-->
-                        <!--&lt;!&ndash; <group>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<label for="budget_code" class="oe_edit_only"/>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h1>&ndash;&gt;-->
-
-                                <!--<field name="budget_code"  placeholder="Budget Code"/>-->
-                            <!--&lt;!&ndash;</h1>&ndash;&gt;-->
-                       <!--&lt;!&ndash; </group>&ndash;&gt;-->
-                    <!--</field>-->
-
-
-                <!--</data>-->
-            <!--</field>-->
-        <!--</record>-->
-
-
-        <!--<record id="crossovered_budget_view_form_ext" model="ir.ui.view">
-            <field name="name">crossovered.budget.view.form</field>
-            <field name="model">crossovered.budget.lines</field>
-            <field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>
-            <field name="arch" type="xml">
-                <data>
-
-                    <field name="creating_user_id" position="before">
-
-                                <field name="budget_code" attrs="{'readonly':[('state','!=','draft')]}" placeholder="Budget Code"/>
-
-                    </field>
-
-
-                </data>
-            </field>
-        </record>-->
-
-
     </data>
-</openerp>
+</odoo>
