@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+
+        <menuitem id="coa_segment_session_menu" name="COA Segments"  action="coa_code.admin_segment_list_action" web_icon="coa_code,static/src/img/coa_seg.png" groups="base.group_system,base.group_gl,base.group_erp_manager"/>
+        <!--<menuitem id="coa_segment_config_menu" name="COA Configuration"  parent="coa_segment_session_menu" groups="base.group_system,base.group_gl,base.group_erp_manager"/>-->
+
+    </data>
+</openerp>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_admin_segment_gl,admin.segment,model_admin_segment,base.group_gl,1,1,1,1
+access_functional_segment_gl,functional.segment,model_functional_segment,base.group_gl,1,1,1,1
+access_fund_segment_gl,fund.segment,model_fund_segment,base.group_gl,1,1,1,1
+access_programme_segment_gl,programme.segment,model_programme_segment,base.group_gl,1,1,1,1
+access_economic_segment_gl,economic.segment,model_economic_segment,base.group_gl,1,1,1,1
+access_geo_segment_gl,geo.segment,model_geo_segment,base.group_gl,1,1,1,1
